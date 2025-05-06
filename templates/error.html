@@ -1,0 +1,90 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ static('dist/style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+</head>
+<body class="bg-slate-900 text-slate-300">
+<div class="flex flex-col ml-[auto] mr-[auto] w-98 items-center mt-2">
+    <div>
+        <div>
+            <h2 class="sr-only">Steps</h2>
+
+            <div
+                    class="relative after:absolute after:inset-x-0 after:top-1/2 after:block after:h-0.5 after:-translate-y-1/2 after:rounded-lg">
+                <ol
+                        class="relative z-10 flex justify-between text-sm font-medium text-gray-500 md:space-x-6">
+
+                    <li class="flex items-center gap-2 p-2">
+                                                    <span
+                                                            class="h-8 w-8 rounded-full text-center flex flex-col items-center font-bold text-slate-300">
+                                                        <svg class="text-slate-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 5.757v8.486M5.757 10h8.486M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+  </svg>
+                                                    </span>
+
+                        <span class="hidden sm:block"> Метод оплаты </span>
+                    </li>
+
+                    <li class="flex items-center gap-2 p-3">
+                        <div
+                                class="h-8 w-8 rounded-full flex flex-col items-center text-slate-200">
+                            <svg class="text-slate-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M10 6v4l3.276 3.276M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                            </svg>
+                        </div>
+
+
+                        <span class="hidden sm:block"> Оплата </span>
+                    </li>
+                    <li class="flex items-center gap-2 p-2">
+                                                    <span
+                                                            class="h-8 w-8 rounded-full text-center flex flex-col items-center font-bold text-slate-300">
+             <svg class="text-red-500/60" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 10 2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+  </svg>
+                                                    </span>
+
+                        <span class="hidden sm:block text-red-500/70"> Выполнено </span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-24 w-full md:w-[36rem] flex flex-col md:items-center">
+        <div class="grid grid-flow-col auto-cols-max gap-24 md:rounded-lg p-8 md:p-12 bg-gradient-to-r from-red-400/20 via-red-500/20 to-red-600/20 shadow-2xl">
+
+            <div class="flex flex-col">
+                <a class="text-2xl font-extrabold flex">
+                    Что-то пошло не так...
+                </a>
+                <a class="text-slate-400 mt-2">{{ title }}</a>
+                <a class="text-slate-300 text-xl font-bold mt-8 rounded-xl p-3 backdrop-blur shadow-xl border border-slate-400/25 w-64 text-center">Вернуться назад</a>
+
+            </div>
+            <div class="flex flex-col items-center hidden md:inline-flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-36 h-36 text-white opacity-30" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ static('dist/script.js') }}"></script>
+
+</body>
+</html>
