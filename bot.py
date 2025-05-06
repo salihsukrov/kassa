@@ -32,6 +32,7 @@ async def send_main_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
          InlineKeyboardButton("💳 Создать счет", callback_data="create_invoice")],
         [InlineKeyboardButton("📜 История транзакций", callback_data="transactions"), 
          InlineKeyboardButton("💸 Запрос на вывод", callback_data="withdraw")],
+        [InlineKeyboardButton("🔑 Генерация API токена", callback_data="generate_api_token")],  # Новая кнопка
         [InlineKeyboardButton("❓ Помощь", callback_data="help")],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
@@ -261,6 +262,17 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         context.user_data['waiting_for'] = 'withdraw'
     elif data == "help":
         await query.edit_message_text(text="Справка:\n- Подключить кассу: /connect <api_token>\n- Создать счет: /create_invoice <amount> <description>\n- Посмотреть транзакции: /transactions\n- Запрос на вывод: /withdraw <amount> <method> <address>\n- Зарегистрировать новую кассу: /register")
+    elif data == "generate_api_token":  # Новый обработчик
+        if merchant:
+            await query.edit_message_text(text="Вы уже зарегистрированы и имеете API токен.")
+        else:
+            api_token = generate_api_token()
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            cursor.execute("INSERT INTO Merchants (api_token, chat_id) VALUES (?, ?)", (api_token, chat_id))
+            conn.commit()
+            conn.close()
+            await query.edit_message_text(text=f"Ваш новый API токен: {api_token}\nИспользуйте его для подключения кассы с помощью /connect <api_token>")
 
 # Обработка ввода пользователя с исправленным URL и оптимизацией
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
